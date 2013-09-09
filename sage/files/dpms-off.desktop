@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Name=dpms-off
+Comment=turn off dpms for display power management
+Exec=/usr/local/bin/dpmsoff
+Terminal=false
+Type=Application
+Categories=utility
