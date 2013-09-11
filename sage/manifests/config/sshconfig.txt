@@ -1,0 +1,8 @@
+define sage::config::sshconfig (
+
+	$node_ip	= $sage::params::nodes[1]
+	
+	http://www.krzywanski.net/archives/703
+	
+)inherits sage::params{
+
