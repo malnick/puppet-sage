@@ -1,4 +1,4 @@
-class sage::sage_sshconfig(
+class sage::sage_ssh(
 
 	$sshdaemon		= $sage::params::sshdaemon,
 	
@@ -14,4 +14,12 @@ service { $sshdaemon:
 	require => Package['openssh-server'],
 	ensure 	=> running,
 	}
+	
+exec {'keygen':
+	path		=> '/usr/bin',
+	command		=> 'echo | ssh-keygen -t rsa',
+	require		=> Service[$sshdaemon],
+	}
+
+	
 }

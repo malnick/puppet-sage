@@ -3,9 +3,9 @@ class sage::params{
 	#  Basic Stuff  #
 	#################
 	
-	$sage_user		= 'UNSET'
-	$sage_sshkey	= 'UNSET'
-	$install_sage	= 'true', # Default is 'install SAGE'
+	$user			= 'UNSET'
+	$install_sage	= 'true' # Default is 'install SAGE'
+	$nodes			= 'UNSET'
 	
 	#################
 	#    Display    #
@@ -34,4 +34,14 @@ class sage::params{
 	#################
 	#   SSH Config  #
 	#################
+
+	if 
+	
+	if $operatingsystem == "Ubuntu" {
+    	$sshdaemon = "ssh"
+    	}
+  	else {
+   		$sshdaemon = "sshd"
+    	}
+	
 }
