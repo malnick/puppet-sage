@@ -6,8 +6,11 @@
 # Modified on $modifiedon$
 ##########################
 
-class sage{
-	include sage::params
+class sage(
+
+	$install_sage = $sage::params::install_sage,
+
+)inherits sage::params{
 
 	if $install_sage == 'true' {
 		include sage::sage_package
@@ -17,5 +20,5 @@ class sage{
 	include sage::sage_sshconfig
 	include sage::sage_scripts
 
-	if ( $verbose == "yes" ) or ( $verbose == true ) { notify { "sage::": } }
+	#if ( $verbose == "yes" ) or ( $verbose == true ) { notify { "sage::": } }
 }

@@ -1,8 +1,10 @@
 define sage::display (
+
 	$sage::params::display_node = $name,
 	$sage::params::display_node_ip,
 	$sage::params::display_node_monitors
-	){
+	
+	)inherits sage::params{
 require sage::config::tileconfig
 
 file {"Create ${display_node} template":

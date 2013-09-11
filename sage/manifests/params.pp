@@ -19,4 +19,11 @@ class sage::params{
 	$display_node			= 'localhost'
 	$display_node_ip		= '127.0.0.1
 	$display_node_monitors	= '1 (0,0)'
+	
+	$fsManager_ip			= '127.0.0.1'
+	$systemPort				= '20002'
+	$uiPort					= '20001'
+	$trackPort				= '20003'
+	$conManager				= '127.0.0.1 15557'
+	$tileConfiguration		= 'stdtile-1.conf'
 }
