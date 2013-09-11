@@ -1,18 +1,12 @@
-define sage::ssh_config (
+class sage::ssh_config (
 	
-){
+	
+	
+)inherits sage::params{
 
-if $operatingsystem == "Ubuntu" {
-    $daemonname = "ssh"
-    }
-  else {
-    $daemonname = "sshd"
-    }
-service{$daemonname:
-	ensure 		=> running,
-	refreshonly => true,
-	}
-
+exec {'rsa keygen':
+	path		=> '/usr/bin',
+	command		=> 'ssh-keygen -t rsa
 
 
 

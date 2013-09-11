@@ -8,7 +8,7 @@ class sage::params{
 	$install_sage	= 'true', # Default is 'install SAGE'
 	
 	#################
-	# Configuration #
+	#    Display    #
 	#################
 	
 	$tile_dimensions		= '1 1'
@@ -20,10 +20,18 @@ class sage::params{
 	$display_node_ip		= '127.0.0.1
 	$display_node_monitors	= '1 (0,0)'
 	
+	#################
+	#   fsManager   #
+	#################
+	
 	$fsManager_ip			= '127.0.0.1'
 	$systemPort				= '20002'
 	$uiPort					= '20001'
 	$trackPort				= '20003'
 	$conManager				= '127.0.0.1 15557'
 	$tileConfiguration		= 'stdtile-1.conf'
+	
+	#################
+	#   SSH Config  #
+	#################
 }
