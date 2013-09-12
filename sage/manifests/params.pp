@@ -3,9 +3,11 @@ class sage::params{
 	#  Basic Stuff  #
 	#################
 	
-	$user			= 'UNSET'
-	$install_sage	= 'true' # Default is 'install SAGE'
-	$nodes			= 'UNSET'
+	$user				= 'UNSET'
+	$master_password	= 'UNSET'
+	$master_ip			= 'UNSET'
+	$install_sage		= 'true' # Default is 'install SAGE'
+	$nodes				='UNSET'
 	
 	#################
 	#    Display    #

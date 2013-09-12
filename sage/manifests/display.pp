@@ -1,15 +1,19 @@
 define sage::display (
 
-	$sage::params::display_node = $name,
-	$sage::params::display_node_ip,
-	$sage::params::display_node_monitors
-	
-	$
+	$type,
+	$ip,
+	$password,
+	$monitors
 	
 )inherits sage::params{
 	
 require sage::config::tileconfig
-require	sage::sage_ssh
+
+$display_node = $name,
+
+if $type == 'master'{
+	$master_ip	== $ip
+	}
 
 file {"Create ${display_node} template":
 	path 	=> "/tmp/${display_node}_template.txt",
@@ -24,6 +28,6 @@ exec {"Insert ${display_node} template into stdtile.conf":
 
 # Configure SSH no password 
 
-exec {"
-
-exec
+sage::config:sshconfig { $display_node:
+	node_ip			=> $ip,
+	node_password	=> $password,

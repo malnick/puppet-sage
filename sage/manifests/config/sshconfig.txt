@@ -1,8 +1,8 @@
 define sage::config::sshconfig (
 
-	$node_ip	= $sage::params::nodes[1]
-	
-	http://www.krzywanski.net/archives/703
+	$node_ip,
+	$node_password,
+	$master_password	= $sage::params::master_password,
+	$master_ip			= $sage::params::master_ip,
 	
 )inherits sage::params{
-

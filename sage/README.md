@@ -9,28 +9,28 @@ Module installs the Scalable Adaptive Graphics Environment on an Ubuntu Precise 
 	class {'sage':
 		install_sage	=> 'true',
 		user			=> 'sage', # should have SSH key access
+		master_password	=> 'shd123',
+				
+		# Pass node information. If $nodes is left out then this defualts to 'master' only on localhost,
+		no parameters are required for this if you're only setting up a single master node. 
+		
 		nodes			=> {
-			"MyNode1" => ['192.168.1.1', 'shd123'], 
-			"MyNode2" => ['192.168.1.2', 'shd123'],} # Hash = NodeName => ['IP','Password']
+			"MyNode0" => {	'type'		=> 'master',
+							'ip'		=> '192/168.1.0', 
+							'password' 	=> 'shd123', 
+							'monitors'	=> '2 (0,0 0,1)'}, 
+			"MyNode1" => { 	'type'		=> 'slave',
+							'ip'	 	=> '192.168.1.1', 
+							'password 	=> 'shd123', 
+							'monitors 	=> '2 (0,1 1,1)'}, 
+			"MyNode2" => { 	'type'		=> 'slave',
+							'ip'		=> '192.168.1.2', 
+							'password' 	=> 'shd123', 
+							'monitors' 	=> '2 (1,1 1,0)'}} 
 		}
 	
-	# Display Node Configuration for stdtile-1.conf	
-	sage::display {'MyNode1':	# $name = display_node in stdtile-1.conf
-		display_node_ip			=> '192.168.1.1',
-		display_node_monitors	=> '2 (0,0 0,1),
-		}
-	sage::display {'MyNode2':
-		display_node_ip			=> '192.168.1.2',
-		display_node_monitors	=> '2 (0,1 1,1),
-		}
-		
-	sage::ssh_config {'MyNode1':
+	
 	
 ##### On each Slave Node
 		
-	class {'sage':
-		install_sage	=> 'true',
-		sage_user		=> 'sage',
-		sage_sshkey		=> #####
-	
-	sage::ssh_config {'MyNode1':
+		include sage

@@ -20,6 +20,4 @@ exec {'keygen':
 	command		=> 'echo | ssh-keygen -t rsa',
 	require		=> Service[$sshdaemon],
 	}
-
-	
 }

@@ -17,9 +17,17 @@ class sage(
 		include sage::sage_package
 		}
 	
-	#include sage::sage_ssh		# install ssh and configure rsa key
+	include sage::sage_ssh		# install ssh and configure rsa key
 	include sage::sageconfig 	# Configure fsManager
 	include sage::sage_scripts 	# Install custom scripts
 	
-sshconfig {
+	$master_defualt = {
+		$type		=> 'master',
+		$ip			=> '127.0.0.1',
+		$password	=> '',
+		$monitors	=> '1 (0,0)'}
+		
+	create_resources(sage::display, $nodes, $master_default)
+	
+	sage::config::sshconfig {$nodes}
 }
